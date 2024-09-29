@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐！留下你的祝福</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            margin: 20px 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        form > div {
+            margin-bottom: 10px;
+        }
+        input[type="text"], textarea {
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+        input[type="submit"] {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        #blessings {
+            margin-top: 20px;
+        }
+        .birthday-container {
+    width: 100%; /* 或者你想要的任何宽度 */
+    max-width: 800px; /* 限制最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+    padding: 20px; /* 添加内边距 */
+    background-color: #f5f5f5; /* 设置背景色 */
+    border-radius: 8px; /* 设置边框圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+    </style>
+</head>
+<body>
+    <h1>生日快乐！朋友</h1>
+    
+        <div>
+            <p>wenzixjcbdhzc</p>
+        </div>
+
+        <video width="320" height="240" controls>
+            <source src="path_to_your_video.mp4" type="video/mp4">
+            <source src="path_to_your_video.ogg" type="video/ogg">
+            您的浏览器不支持 HTML5 video 标签。
+        </video>
+    <div class="birthday-container"> <!-- 添加的外部div -->
+        <p>请留下你的名字和祝福：</p>
+        <form onsubmit="return submitBlessing(event)">
+            <div>
+                <input type="text" id="name" name="name" placeholder="你的名字">
+            </div>
+            <div>
+                <textarea id="blessing" name="blessing" placeholder="你的祝福..."></textarea>
+            </div>
+            <div>
+                <input type="submit" value="提交">
+            </div>
+        </form>
+    </div>
+    <div id="blessings">
+        <!-- 祝福将会显示在这里 -->
+    </div>
+
+    <script>
+        function submitBlessing(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            var name = document.getElementById('name').value;
+            var blessing = document.getElementById('blessing').value;
+            
+            if (name && blessing) {
+                var blessingElement = document.createElement('div');
+                blessingElement.innerHTML = '<strong>' + name + ':</strong> ' + blessing;
+                document.getElementById('blessings').appendChild(blessingElement);
+                
+                // 清空输入框
+                document.getElementById('name').value = '';
+                document.getElementById('blessing').value = '';
+            } else {
+                alert('请填写您的名字和祝福！');
+            }
+        }
+    </script>
+</body>
+</html>
